@@ -18,7 +18,7 @@
     "ghcr.io/MiguelRodo/DevContainerFeatures/renv-cache:1": {
       "debug": true,
       "debugRenv": true
-    },
+    }
   },
   "customizations": {
     "vscode": {
