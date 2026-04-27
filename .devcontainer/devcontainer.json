@@ -5,9 +5,8 @@
     "context": ".."
   },
   "features": {
-    "ghcr.io/MiguelRodo/DevContainerFeatures/renv-cache:1": {
-      "debug": true,
-      "debugRenv": true
+    "ghcr.io/MiguelRodo/DevContainerFeatures/cmdstan:1": {
+      "version": "latest"
     },
     "ghcr.io/MiguelRodo/DevContainerFeatures/repos:3": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
@@ -16,9 +15,10 @@
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
       "installTinyTex": true
     },
-    "ghcr.io/MiguelRodo/DevContainerFeatures/cmdstan:1": {
-      "version": "latest"
-    }
+    "ghcr.io/MiguelRodo/DevContainerFeatures/renv-cache:1": {
+      "debug": true,
+      "debugRenv": true
+    },
   },
   "customizations": {
     "vscode": {
