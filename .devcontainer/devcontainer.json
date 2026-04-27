@@ -9,25 +9,22 @@
       "debug": true,
       "debugRenv": true
     },
-    "ghcr.io/MiguelRodo/DevContainerFeatures/repos:2": {},
+    "ghcr.io/MiguelRodo/DevContainerFeatures/repos:3": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
       "packages": "xvfb,vim,libcurl4-openssl-dev,libsecret-1-dev,jq"
     },
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
       "installTinyTex": true
+    },
+    "ghcr.io/MiguelRodo/DevContainerFeatures/cmdstan:1": {
+      "version": "latest"
     }
   },
   "customizations": {
     "vscode": {
       "extensions": [
-        "quarto.quarto",
-        "GitHub.copilot",
-        "GitHub.copilot-chat"
-      ],
-      "settings": {
-        "dotfiles.repository": "https://github.com/SATVILab/dotfiles.git",
-        "dotfiles.targetPath": "$HOME/.dotfiles"
-      }
+        "quarto.quarto"
+      ]
     }
   }
 }
