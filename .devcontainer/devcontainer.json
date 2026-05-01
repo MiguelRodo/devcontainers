@@ -1,5 +1,5 @@
 {
-  "name": "Modified BioConductor Dev Container",
+  "name": "BioConductor Dev Container",
   "build": {
     "dockerfile": "Dockerfile",
     "context": ".."
@@ -9,7 +9,7 @@
       "debug": true,
       "debugRenv": true
     },
-    "ghcr.io/MiguelRodo/DevContainerFeatures/repos:2": {},
+    "ghcr.io/MiguelRodo/DevContainerFeatures/repos:3": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
       "packages": "xvfb,vim,libcurl4-openssl-dev,libsecret-1-dev,jq"
     },
