@@ -5,6 +5,7 @@
     "context": ".."
   },
   "features": {
+    "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1": {},
     "ghcr.io/MiguelRodo/DevContainerFeatures/renv-cache:1": {
       "debug": true,
       "debugRenv": true
