@@ -22,13 +22,9 @@
     "vscode": {
       "extensions": [
         "quarto.quarto",
-        "GitHub.copilot",
-        "GitHub.copilot-chat"
-      ],
-      "settings": {
-        "dotfiles.repository": "https://github.com/SATVILab/dotfiles.git",
-        "dotfiles.targetPath": "$HOME/.dotfiles"
-      }
+        "Posit.air-vscode",
+        "mathematic.vscode-pdf"
+      ]
     }
   }
 }
