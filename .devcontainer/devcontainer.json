@@ -8,7 +8,7 @@
     "ghcr.io/MiguelRodo/DevContainerFeatures/cmdstan:1": {
       "version": "latest"
     },
-    "ghcr.io/MiguelRodo/DevContainerFeatures/repos:3": {},
+    "ghcr.io/MiguelRodo/DevContainerFeatures/utils:1": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
       "packages": "xvfb,vim,libcurl4-openssl-dev,libsecret-1-dev,jq"
     },
