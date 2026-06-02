@@ -7,12 +7,24 @@ on:
       - '*-v*'
   workflow_dispatch:
     inputs:
-      tag:
-        description: 'Tag to build (e.g. v1.2.3 or main-v1.2.3)'
+      target_branch: 
+        description: 'Branch to check out and build (e.g., 2024-stimgate)'
         required: true
-
-env:
-  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+        default: 'main'
+        type: string
+      bump_type:
+        description: 'Version component to bump (major, minor, patch)'
+        required: false
+        type: choice
+        options:
+          - ''
+          - patch
+          - minor
+          - major
+      version:
+        description: 'Exact version to build (e.g. v1.2.3). Leave blank if using bump_type.'
+        required: false
+        type: string
 
 jobs:
   build:
@@ -27,10 +39,14 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.target_branch }}
+          fetch-depth: 0
 
       - name: Run Dev Container Prebuild
         uses: MiguelRodo/actions/prebuild-devcontainer@v2
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          tag: ${{ github.event.inputs.tag }}
-          create_prebuild_json: false
+          target_branch: ${{ inputs.target_branch }}
+          bump_type: ${{ github.event.inputs.bump_type }}
+          version: ${{ github.event.inputs.version }}
