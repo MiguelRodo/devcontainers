@@ -8,7 +8,7 @@ on:
   workflow_dispatch:
     inputs:
       target_branch: 
-        description: 'Branch to check out and build (e.g., 2024-stimgate)'
+        description: 'Branch to check out and build'
         required: true
         default: 'main'
         type: string

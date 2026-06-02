@@ -1,9 +1,6 @@
 {
-  "name": "BioConductor Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": ".."
-  },
+  "name": "BioConductor Release 3.23",
+  "image": "bioconductor/bioconductor_docker:RELEASE_3_23",
   "features": {
     "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1.1.0": {},
     "ghcr.io/MiguelRodo/DevContainerFeatures/utils:1.1.0": {},
@@ -12,6 +9,7 @@
     },
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
       "installTinyTex": false
-    }
+    },
+    "ghcr.io/rocker-org/devcontainer-features/r-dependent-packages:0": {}
   }
 }
