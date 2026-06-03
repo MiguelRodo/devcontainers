@@ -16,8 +16,9 @@
       "installTinyTex": true
     },
     "ghcr.io/MiguelRodo/DevContainerFeatures/renv-cache:1": {
-      "debug": true,
-      "debugRenv": true
+      "update": true,
+      "createUnifiedLockfile": "true",
+      "purgePostUnification": "keep-one"
     }
   },
   "customizations": {
