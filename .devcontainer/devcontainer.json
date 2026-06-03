@@ -20,12 +20,5 @@
       "createUnifiedLockfile": "true",
       "purgePostUnification": "keep-one"
     }
-  },
-  "customizations": {
-    "vscode": {
-      "extensions": [
-        "quarto.quarto"
-      ]
-    }
   }
 }
