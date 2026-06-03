@@ -2,7 +2,10 @@
   "name": "Modified BioConductor Dev Container",
   "build": {
     "dockerfile": "Dockerfile",
-    "context": ".."
+    "context": "..",
+    "args": {
+      "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
+    }
   },
   "features": {
     "ghcr.io/MiguelRodo/DevContainerFeatures/cmdstan:1": {
