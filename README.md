@@ -15,7 +15,7 @@ Add a `.devcontainer/devcontainer.json` to your project referencing the desired 
 
 ```json
 {
-  "image": "ghcr.io/miguelrodo/devcontainers:v1.0.0",
+  "image": "ghcr.io/miguelrodo/devcontainers-main:v1.3.0",
   "customizations": {
     "vscode": {
       "extensions": [
