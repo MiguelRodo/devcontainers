@@ -20,6 +20,7 @@
     },
     "ghcr.io/MiguelRodo/DevContainerFeatures/renv-cache:1": {
       "update": true,
+      "pkg": "bioc::flowWorkspace, bioc::MIMOSA, RGLab/MIMOSA2",
       "createUnifiedLockfile": "true",
       "purgePostUnification": "keep-one"
     }
