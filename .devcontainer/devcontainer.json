@@ -7,8 +7,10 @@
       "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
     }
   },
+  "remoteUser": "rstudio",
+  "updateRemoteUserUID": true,
   "features": {
-    "ghcr.io/MiguelRodo/build-info": {},
+    "ghcr.io/MiguelRodo/build-info:1": {},
     "ghcr.io/MiguelRodo/DevContainerFeatures/cmdstan:1": {
       "version": "latest"
     },

@@ -11,8 +11,5 @@ ARG GITHUB_TOKEN
 # so the Dev Container feature scripts (like renv-cache) can see it
 ENV GITHUB_TOKEN=${GITHUB_TOKEN}
 
-# Copy the `.devcontainer/renv` folder to the container
-COPY .devcontainer/renv /usr/local/share/renv-cache/renv
-
 # Set appropriate permissions
 RUN chmod -R 755 /usr/local/share/renv-cache/renv
