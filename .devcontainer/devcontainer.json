@@ -10,7 +10,7 @@
   "remoteUser": "rstudio",
   "updateRemoteUserUID": true,
   "features": {
-    "ghcr.io/MiguelRodo/build-info:1": {},
+    "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1": {},
     "ghcr.io/MiguelRodo/DevContainerFeatures/cmdstan:1": {
       "version": "latest"
     },
