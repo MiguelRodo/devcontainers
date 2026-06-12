@@ -1,15 +1,25 @@
 {
-  "name": "BioConductor Release 3.23",
-  "image": "bioconductor/bioconductor_docker:RELEASE_3_23",
+  "name": "Repos CLI Environment",
+  
+  // Official Go image
+  "image": "mcr.microsoft.com/devcontainers/go:1-bookworm",
+  
+  // Dev Container Features
   "features": {
-    "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1.1.0": {},
-    "ghcr.io/MiguelRodo/DevContainerFeatures/utils:1.1.0": {},
-    "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages": "xvfb,vim,libcurl4-openssl-dev,libsecret-1-dev,jq,qpdf"
+    // Includes pipx
+    "ghcr.io/devcontainers/features/python:1": {
+      "installTools": true
     },
-    "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
-      "installTinyTex": false
-    },
-    "ghcr.io/rocker-org/devcontainer-features/r-dependent-packages:0": {}
+    // For codespaces-auth tests
+    "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/rocker-org/devcontainer-features/r-rig:1": {
+      "version": "latest"
+    }
+  },
+  
+  // Install huggingface_hub and Go dependencies
+  "postCreateCommand": {
+    "huggingface": "pipx install huggingface_hub || pipx upgrade huggingface_hub",
+    "go": "go mod download"
   }
 }
