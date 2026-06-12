@@ -1,12 +1,6 @@
 {
   "name": "Modified BioConductor Dev Container",
-  "build": {
-    "dockerfile": "Dockerfile",
-    "context": "..",
-    "args": {
-      "GITHUB_TOKEN": "${localEnv:GITHUB_TOKEN}"
-    }
-  },
+  "image": "bioconductor/bioconductor_docker:RELEASE_3_23",
   "remoteUser": "rstudio",
   "updateRemoteUserUID": true,
   "features": {
@@ -29,3 +23,4 @@
     }
   }
 }
+
