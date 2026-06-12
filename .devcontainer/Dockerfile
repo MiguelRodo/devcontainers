@@ -11,5 +11,3 @@ ARG GITHUB_TOKEN
 # so the Dev Container feature scripts (like renv-cache) can see it
 ENV GITHUB_TOKEN=${GITHUB_TOKEN}
 
-# Set appropriate permissions
-RUN chmod -R 755 /usr/local/share/renv-cache/renv
