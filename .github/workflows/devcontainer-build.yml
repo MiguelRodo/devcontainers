@@ -25,6 +25,14 @@ on:
         description: 'Exact version to build (e.g. v1.2.3). Leave blank if using bump_type.'
         required: false
         type: string
+      no_cache:
+        description: 'Disable Docker cache during build.'
+        required: true
+        default: 'false'
+        type: choice
+        options:
+          - 'false'
+          - 'true'
 
 jobs:
   build:
@@ -50,3 +58,4 @@ jobs:
           target_branch: ${{ inputs.target_branch }}
           bump_type: ${{ github.event.inputs.bump_type }}
           version: ${{ github.event.inputs.version }}
+          no_cache: ${{ github.event.inputs.no_cache }}
