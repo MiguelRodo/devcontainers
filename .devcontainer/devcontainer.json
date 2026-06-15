@@ -2,7 +2,9 @@
   "name": "BioConductor Release 3.23",
   "image": "bioconductor/bioconductor_docker:RELEASE_3_23",
   "remoteUser": "rstudio",
-  "updateRemoteUserUID": true,
+  "containerEnv": {
+    "ROOT": "true"
+  },
   "features": {
     "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1.4.0": {},
     "ghcr.io/MiguelRodo/DevContainerFeatures/utils:1.1.0": {},
