@@ -3,7 +3,7 @@
   "image": "bioconductor/bioconductor_docker:RELEASE_3_23",
   "containerUser": "rstudio",
   "features": {
-    "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1": {},
+    "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1.4.0": {},
     "ghcr.io/MiguelRodo/DevContainerFeatures/cmdstan:1": {
       "version": "latest"
     },
@@ -14,7 +14,7 @@
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
       "installTinyTex": true
     },
-    "ghcr.io/MiguelRodo/DevContainerFeatures/renv-cache:1.15.1": {
+    "ghcr.io/MiguelRodo/DevContainerFeatures/renv-cache:1.15.3": {
       "update": true,
       "pkg": "bioc::flowWorkspace, bioc::MIMOSA, RGLab/MIMOSA2",
       "createUnifiedLockfile": "true",
