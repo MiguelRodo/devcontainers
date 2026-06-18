@@ -1,8 +1,7 @@
 {
   "name": "Modified BioConductor Dev Container",
   "image": "bioconductor/bioconductor_docker:RELEASE_3_23",
-  "remoteUser": "rstudio",
-  "updateRemoteUserUID": true,
+  "containerUser": "rstudio",
   "features": {
     "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1": {},
     "ghcr.io/MiguelRodo/DevContainerFeatures/cmdstan:1": {
