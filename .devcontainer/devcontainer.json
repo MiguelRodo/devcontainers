@@ -9,6 +9,11 @@
       "upgradePackages": false
     },
     "ghcr.io/devcontainers/features/github-cli:1": {},
+    "ghcr.io/devcontainers/features/go:1": {
+      "version": "none",
+      "installTools": "true",
+      "golangciLintVersion": "2.13.1"
+    },
     "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1.4.0": {}
   }
 }
