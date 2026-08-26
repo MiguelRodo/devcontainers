@@ -1,25 +1,14 @@
 {
-  "name": "Repos CLI Environment",
-  
-  // Official Go image
-  "image": "mcr.microsoft.com/devcontainers/go:1-bookworm",
-  
-  // Dev Container Features
+  "name": "Projects Go Development",
+  "image": "mcr.microsoft.com/devcontainers/go:1.26-bookworm",
+  "remoteUser": "vscode",
   "features": {
-    // Includes pipx
-    "ghcr.io/devcontainers/features/python:1": {
-      "installTools": true
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "vscode",
+      "installZsh": false,
+      "upgradePackages": false
     },
-    // For codespaces-auth tests
     "ghcr.io/devcontainers/features/github-cli:1": {},
-    "ghcr.io/rocker-org/devcontainer-features/r-rig:1": {
-      "version": "latest"
-    }
-  },
-  
-  // Install huggingface_hub and Go dependencies
-  "postCreateCommand": {
-    "huggingface": "pipx install huggingface_hub || pipx upgrade huggingface_hub",
-    "go": "go mod download"
+    "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1.4.0": {}
   }
 }
