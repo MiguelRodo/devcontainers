@@ -46,13 +46,13 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v7
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           ref: ${{ inputs.target_branch }}
           fetch-depth: 0
 
       - name: Run Dev Container Prebuild
-        uses: MiguelRodo/actions/prebuild-devcontainer@v2
+        uses: MiguelRodo/actions/prebuild-devcontainer@ea8f8df62048a1ae56a1e99a58580a0ac05b8e41 # v2.43.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: ${{ inputs.target_branch }}

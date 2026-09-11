@@ -1,14 +1,18 @@
 version: 2
+
+multi-ecosystem-groups:
+  monthly-automation:
+    schedule:
+      interval: "monthly"
+
 updates:
-  # Check for updates to GitHub Actions
   - package-ecosystem: "github-actions"
     directory: "/"
-    schedule:
-      interval: "weekly"
-    open-pull-requests-limit: 10
-
-  # 2. Automatically update Dev Container features and definitions
+    patterns:
+      - "*"
+    multi-ecosystem-group: "monthly-automation"
   - package-ecosystem: "devcontainers"
-    directory: "/" # Scans .devcontainer/devcontainer.json
-    schedule:
-      interval: "weekly"
+    directory: "/"
+    patterns:
+      - "*"
+    multi-ecosystem-group: "monthly-automation"
