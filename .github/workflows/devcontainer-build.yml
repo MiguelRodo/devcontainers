@@ -52,7 +52,7 @@ jobs:
           fetch-depth: 0
 
       - name: Run Dev Container Prebuild
-        uses: MiguelRodo/actions/prebuild-devcontainer@ea8f8df62048a1ae56a1e99a58580a0ac05b8e41 # v2.43.0
+        uses: MiguelRodo/actions/prebuild-devcontainer@bf850afe48d42ac221079cfede39021d0574c15a # v3.0.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           target_branch: ${{ inputs.target_branch }}
