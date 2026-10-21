@@ -1,22 +1,31 @@
 {
-  "name": "BioConductor Release 3.23",
-  "image": "bioconductor/bioconductor_docker:RELEASE_3_23",
+  "name": "projcli development and renderer diagnostics",
+  "build": { "dockerfile": "Dockerfile" },
   "containerUser": "rstudio",
+  "remoteUser": "rstudio",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
-        "username": "rstudio",
-        "installZsh": false,
-        "upgradePackages": false,
-        "installSsl": false
+      "username": "rstudio",
+      "installZsh": false,
+      "upgradePackages": false,
+      "installSsl": false
     },
     "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1.4.0": {},
-    "ghcr.io/MiguelRodo/DevContainerFeatures/utils:1.1.0": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
-      "packages": "xvfb,vim,libcurl4-openssl-dev,libsecret-1-dev,jq,qpdf"
+      "packages": "build-essential,pkg-config,libssl-dev,python3,python3-venv,git,curl,jq,qpdf,poppler-utils"
+    },
+    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+      "packages": "knitr,rmarkdown",
+      "cranMirror": "https://cloud.r-project.org"
     },
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
-      "installTinyTex": true 
+      "version": "1.10.19",
+      "installTinyTex": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": ["rust-lang.rust-analyzer", "quarto.quarto", "mathematic.vscode-pdf"]
     }
   }
 }
-
