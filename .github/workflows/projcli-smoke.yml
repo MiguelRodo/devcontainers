@@ -1,0 +1,44 @@
+name: projcli image smoke
+
+on:
+  pull_request:
+    branches: [projcli]
+  workflow_dispatch:
+    inputs:
+      image:
+        description: 'Optional published tag@sha256 reference to verify instead of rebuilding'
+        type: string
+        required: false
+
+permissions:
+  contents: read
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          ref: ${{ github.event_name == 'workflow_dispatch' && 'projcli' || github.sha }}
+      - name: Select published image when requested
+        if: inputs.image != ''
+        env:
+          IMAGE: ${{ inputs.image }}
+        shell: bash
+        run: |
+          [[ "$IMAGE" =~ ^ghcr\.io/miguelrodo/devcontainers-projcli:v[0-9]+\.[0-9]+\.[0-9]+@sha256:[a-f0-9]{64}$ ]]
+          jq -n --arg image "$IMAGE" '{image: $image, containerUser: "rstudio", remoteUser: "rstudio"}' > .devcontainer/devcontainer.json
+      - name: Build and exercise without publishing
+        uses: devcontainers/ci@513af61f4de4f75d37e4438f184ba4358f0fc1ca # v0.3.1900000450
+        with:
+          imageName: projcli-smoke
+          push: never
+          runCmd: python3 tests/smoke.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        if: always()
+        with:
+          name: projcli-image-smoke
+          path: smoke-evidence/
+          if-no-files-found: warn
