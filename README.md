@@ -108,3 +108,19 @@ and Dependabot. Rejected the standard Rust feature's extra permissions; kept
 one stdlib smoke instead of importing the broad unmerged path diagnostic.
 Payload checks prevent render exit codes or PDF headers from masking missing
 images. No production source, path contract or existing R package changes.
+
+The smoke's `workflow_dispatch` is also registered on the default branch by
+PR12. It checks out the reviewed long-lived `projcli` branch; supplying its
+optional `image` input requires the exact package, SemVer tag and SHA256 digest.
+It then consumes that prebuilt image without adding features or publishing.
+Use this remote verification after normal publication and before finalizing the
+consumer digest. Rendering smokes disable automatic TeX package installation,
+so success must come from the image's installed toolchain.
+
+Initial remote build/smoke passed at source head
+`653add136713f01f35235e03bd588e98372058e9` in
+[Actions run39558670289](https://github.com/MiguelRodo/devcontainers/actions/runs/39558670289).
+Recorded versions included Rust/Cargo 1.99.1 stable, Python 3.12.3, R 4.6.1,
+knitr 1.52, rmarkdown 2.32, Quarto 1.10.19, Pandoc 3.10 and TinyTeX v2026.10.
+Later exact-head checks are required for subsequent changes. This was a
+nonpublishing runner build; it supplies no registry digest or local editor claim.

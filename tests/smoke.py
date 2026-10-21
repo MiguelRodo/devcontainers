@@ -38,6 +38,7 @@ class Images(HTMLParser):
 
 
 # Capture only named tool/package metadata, never environment or process dumps.
+run("git", "rev-parse", "HEAD")
 for command in [("container-info",), ("rustc", "-Vv"), ("cargo", "-V"),
                 ("rustup", "show", "active-toolchain"), ("cc", "--version"),
                 ("make", "--version"), ("pkg-config", "--modversion", "openssl"),
@@ -101,6 +102,7 @@ knitr::include_graphics("../input/sentinel.png")
                 source.write_text('---\ntitle: "Image smoke"\n---\n' + body)
                 # R Markdown uses Quarto's bundled Pandoc, as it does in this base.
                 run("Rscript", "-e", '''args <- commandArgs(TRUE)
+options(tinytex.install_packages=FALSE)
 format <- if (args[3] == "html") rmarkdown::html_document(self_contained=TRUE) else rmarkdown::pdf_document()
 rmarkdown::render(args[1], output_format=format, output_file=basename(args[2]),
   output_dir=dirname(args[2]), knit_root_dir=dirname(args[1]), quiet=FALSE)
@@ -108,7 +110,7 @@ rmarkdown::render(args[1], output_format=format, output_file=basename(args[2]),
             else:
                 source.write_text('---\ntitle: "Image smoke"\nformat:\n'
                                   '  html:\n    embed-resources: true\n'
-                                  '  pdf: default\n---\n' + body)
+                                  '  pdf:\n    latex-auto-install: false\n---\n' + body)
                 run("quarto", "render", str(source), "--to", fmt,
                     "--execute-dir", str(analysis), "--output", f"quarto.{fmt}", cwd=analysis)
                 shutil.copy2(analysis / f"quarto.{fmt}", output)
