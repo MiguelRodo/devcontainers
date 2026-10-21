@@ -19,3 +19,26 @@ updates:
       routine-devcontainers:
         patterns:
           - "*"
+
+  # The projcli image lives on its own long-lived branch, like other variants.
+  - package-ecosystem: "devcontainers"
+    directory: "/"
+    target-branch: "projcli"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 1
+    groups:
+      projcli-devcontainers:
+        patterns:
+          - "*"
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    target-branch: "projcli"
+    schedule:
+      interval: "monthly"
+    open-pull-requests-limit: 1
+    groups:
+      projcli-github-actions:
+        patterns:
+          - "*"
