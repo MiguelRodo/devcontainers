@@ -30,12 +30,18 @@ jobs:
         run: |
           [[ "$IMAGE" =~ ^ghcr\.io/miguelrodo/devcontainers-projcli:v[0-9]+\.[0-9]+\.[0-9]+@sha256:[a-f0-9]{64}$ ]]
           jq -n --arg image "$IMAGE" '{image: $image, containerUser: "rstudio", remoteUser: "rstudio"}' > .devcontainer/devcontainer.json
+      - name: Remove stale smoke witness
+        shell: bash
+        run: rm -f -- smoke-evidence/PASS.txt
       - name: Build and exercise without publishing
         uses: devcontainers/ci@513af61f4de4f75d37e4438f184ba4358f0fc1ca # v0.3.1900000450
         with:
           imageName: projcli-smoke
           push: never
           runCmd: python3 tests/smoke.py
+      - name: Require completed smoke witness
+        shell: bash
+        run: test -s smoke-evidence/PASS.txt
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
         if: always()
         with:
