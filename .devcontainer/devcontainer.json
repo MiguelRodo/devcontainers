@@ -16,7 +16,7 @@
     },
     "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
       "packages": "knitr,rmarkdown",
-      "cranMirror": "https://cloud.r-project.org"
+      "cranMirror": "https:\/\/cloud.r-project.org"
     },
     "ghcr.io/rocker-org/devcontainer-features/quarto-cli:1": {
       "version": "1.10.19",
