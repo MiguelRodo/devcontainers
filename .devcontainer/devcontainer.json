@@ -14,7 +14,7 @@
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
       "packages": "build-essential,pkg-config,libssl-dev,python3,python3-venv,git,curl,jq,qpdf,poppler-utils"
     },
-    "ghcr.io/rocker-org/devcontainer-features/r-packages:1": {
+    "ghcr.io/rocker-org/devcontainer-features/r-packages:2": {
       "packages": "knitr,rmarkdown",
       "cranMirror": "https:\/\/cloud.r-project.org"
     },
