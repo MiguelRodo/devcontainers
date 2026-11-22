@@ -1,0 +1,13 @@
+# The utils feature installs these packages from MiguelRodo's signed APT repository.
+Package: repos
+Pin: version 2.7.2
+Pin-Priority: 1001
+
+Package: setupmjr
+Pin: version 0.9.3
+Pin-Priority: 1001
+
+# Report an unavailable version instead of selecting a different release.
+Package: repos setupmjr
+Pin: version *
+Pin-Priority: -1

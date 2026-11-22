@@ -1,6 +1,6 @@
 {
   "name": "BioConductor Release 3.23",
-  "image": "bioconductor/bioconductor_docker:RELEASE_3_23",
+  "build": { "dockerfile": "Dockerfile" },
   "containerUser": "rstudio",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
