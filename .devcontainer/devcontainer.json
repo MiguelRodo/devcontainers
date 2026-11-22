@@ -1,6 +1,6 @@
 {
   "name": "Modified BioConductor Dev Container",
-  "image": "bioconductor/bioconductor_docker:RELEASE_3_23",
+  "build": { "dockerfile": "Dockerfile" },
   "containerUser": "rstudio",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
@@ -13,7 +13,7 @@
     "ghcr.io/MiguelRodo/DevContainerFeatures/cmdstan:1": {
       "version": "latest"
     },
-    "ghcr.io/MiguelRodo/DevContainerFeatures/utils:1": {},
+    "ghcr.io/MiguelRodo/DevContainerFeatures/utils:1.1.0": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
       "packages": "xvfb,vim,libcurl4-openssl-dev,libsecret-1-dev,jq"
     },
