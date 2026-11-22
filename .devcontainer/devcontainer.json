@@ -1,6 +1,6 @@
 {
   "name": "BioConductor Release 3.23",
-  "image": "bioconductor/bioconductor_docker:RELEASE_3_23",
+  "build": { "dockerfile": "Dockerfile" },
   "containerUser": "rstudio",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
@@ -10,10 +10,7 @@
         "installSsl": false
     },
     "ghcr.io/MiguelRodo/DevContainerFeatures/build-info:1.4.0": {},
-    "ghcr.io/MiguelRodo/DevContainerFeatures/utils:1.2.0": {
-      "reposVersion": "2.7.2",
-      "setupmjrVersion": "0.9.3"
-    },
+    "ghcr.io/MiguelRodo/DevContainerFeatures/utils:1.1.0": {},
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
       "packages": "xvfb,vim,libcurl4-openssl-dev,libsecret-1-dev,jq,qpdf"
     },
