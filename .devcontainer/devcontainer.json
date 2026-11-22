@@ -13,7 +13,10 @@
     "ghcr.io/MiguelRodo/DevContainerFeatures/cmdstan:1": {
       "version": "latest"
     },
-    "ghcr.io/MiguelRodo/DevContainerFeatures/utils:1": {},
+    "ghcr.io/MiguelRodo/DevContainerFeatures/utils:1.2.0": {
+      "reposVersion": "2.7.2",
+      "setupmjrVersion": "0.9.3"
+    },
     "ghcr.io/rocker-org/devcontainer-features/apt-packages:1": {
       "packages": "xvfb,vim,libcurl4-openssl-dev,libsecret-1-dev,jq"
     },
