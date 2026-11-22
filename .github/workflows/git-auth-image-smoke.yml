@@ -1,0 +1,42 @@
+name: Verify published Git auth images
+on:
+  workflow_dispatch:
+    inputs:
+      target:
+        type: choice
+        required: true
+        options: [main, 2026-mimosa-stan]
+      digest:
+        type: string
+        required: true
+permissions: {}
+jobs:
+  smoke:
+    if: github.repository == 'MiguelRodo/devcontainers' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Verify published image package and executable versions
+        shell: bash
+        env:
+          TARGET: ${{ inputs.target }}
+          DIGEST: ${{ inputs.digest }}
+        run: |
+          set -euo pipefail
+          case "$TARGET" in
+            main) image=ghcr.io/miguelrodo/devcontainers-main; tag=v1.13.1 ;;
+            2026-mimosa-stan) image=ghcr.io/miguelrodo/devcontainers-2026-mimosa-stan; tag=v1.2.2 ;;
+            *) exit 2 ;;
+          esac
+          [[ "$DIGEST" =~ ^sha256:[0-9a-f]{64}$ ]]
+          tag_digest=$(docker buildx imagetools inspect "$image:$tag" | awk '$1=="Digest:" && !seen++ {print $2}')
+          test "$tag_digest" = "$DIGEST"
+          ref="$image@$DIGEST"
+          docker pull --quiet --platform linux/amd64 "$ref" >/dev/null
+          test "$(docker image inspect --format '{{.Os}}/{{.Architecture}}' "$ref")" = linux/amd64
+          docker run --rm -i --platform linux/amd64 --network none --read-only --cap-drop=ALL --security-opt=no-new-privileges --entrypoint /bin/sh "$ref" -se <<'SH'
+          test "$(dpkg-query -W -f='${Version}' repos)" = 2.7.2
+          test "$(dpkg-query -W -f='${Version}' setupmjr)" = 0.9.3
+          repos --version
+          setupmjr --version
+          SH
